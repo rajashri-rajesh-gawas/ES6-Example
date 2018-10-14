@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation</title>
+	<style type="text/css">
+		
+	#div{
+		height: 300px;
+		width: 500px;
+		border: 1px solid black;
+	}
+	.div{
+		height: 50px;
+		width: 50px;
+		background: red;
+		border: 1px solid red;
+		margin-top: 10px;
+		margin-left: 10px;
+		top: 10px;
+		position: relative;
+	}
+	.btn{
+		background-color: green;
+	}
+	.button{
+		background-color: red
+	}
+
+	</style>
+	<script type="text/javascript">
+		
+		class Animate{
+				
+			move() {
+			this.element = document.getElementById('box');
+				//console.log("log", ob.style.top);
+				if(isNaN(parseInt(this.element.style.top)))
+				{
+				  this.element.style.top = 0;	
+				}
+				this.element.style.top = parseInt(this.element.style.top) + 10 + 'px';
+				//ob.style.top = parseInt(ob.style.top) + 0 + 'px';
+				
+
+			}
+
+			startDiv() {
+				
+				this.ob = setInterval( ()=>{
+				this.move();
+				},1000);
+				
+			}
+
+			stopDiv() {
+				
+				clearInterval(this.ob);
+				//this.element.style.top = '0px';
+				console.log(this.ob);
+				// this.ob.style.top = '0px';	
+				
+			}
+
+			
+		}
+
+		let ani = new Animate();
+		
+
+	</script>
+</head>
+<body>
+	<div id="div">
+		<div  class="div" id="box"></div>
+		
+	</div>
+	<button class="btn" onclick="ani.startDiv()">Start</button>
+	<button class="button" onclick="ani.stopDiv();">Stop</button>
+</body>
+</html>

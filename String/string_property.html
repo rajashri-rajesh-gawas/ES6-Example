@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		console.log("Object constructor =>");		
+		var str = new String("This is string");
+		console.log("str.constructor is : " + str.constructor);
+
+		console.log("Object length =>");
+		var uname = new String("Hello World");
+		console.log(uname);
+		console.log("Length : " + uname.length);
+		// returns the total number of characters 
+		// including whitespace
+	</script>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		console.log("Object prototype =>");
+		function employee(id, name) {
+			this.id = id;
+			this.name = name;
+		}
+		var emp = new employee(123, "Manasi");
+		employee.prototype.email = "manasigws4216@gmail.com";
+
+		console.log("Employee's id   : " + emp.id);
+		console.log("Employee's name : " + emp.name);
+		console.log("Employee's email: " + emp.email);
+
+	</script>
+</body>
+</html>

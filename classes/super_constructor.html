@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		class Shape {
+			toString () {
+				return `Shape(${this.id})`
+			}
+		}
+		class Rectangle extends Shape {
+			constructor (id,x,y,width,height) {
+				super(id,x,y);
+				this.id = id;
+				this.x = x;
+				this.y = y;
+				this.width = width;
+				this.height = height;
+			}
+			toString() {
+				"Rectangle > " + super.toString();
+				console.log(` The id is: ${this.id}, x is: ${this.x}, y is: ${this.y}, width is: ${this.width}, height is: ${this.height} `);
+			}
+		}
+		class Circle extends Shape {
+			constructor (id,x,y,radius) {
+				super(id,x,y);
+				this.id = id;
+				this.x = x;
+				this.y = y;
+				this.radius = radius;
+			}
+			toString() {
+				"Circle > " + super.toString();
+				console.log(` The id is: ${this.id}, x is: ${this.x}, y is: ${this.y}, radius is: ${this.radius} `);
+			}
+		}
+		let rect = new Rectangle(1, 10, 20, 50, 50);
+		rect.toString();
+
+		let circle = new Circle(2, 30, 40, 100);
+		circle.toString();
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		window.onerror = function (msg,url,line) {
+			document.write("Message:" + msg);
+			document.write("<br>");
+			document.write("Url:" + url);
+			document.write("<br>");
+			document.write("Line Number:" + line);
+		}
+
+	</script>
+</head>
+<body>
+	<p>Click the following to see the result:</p>
+	<form>
+		<input type="button" name="" value="Click Me" onclick="myFunc();" >
+	</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		class PrinterClass {
+			doPrint(){
+				console.log("doPrint() from Parent called...");
+			}
+		}
+		class StringPrinter extends PrinterClass {
+			doPrint() {
+				super.doPrint()
+				console.log("doPrint() is printing a string.");
+			}
+		}
+		var obj = new StringPrinter();
+		obj.doPrint();
+	</script>
+</body>
+</html>

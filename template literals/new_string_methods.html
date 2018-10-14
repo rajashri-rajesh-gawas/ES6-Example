@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("New String Method startsWith ==>");
+		var str = "hello world!!";
+		console.log(str.startsWith('hello'));
+
+		console.log("New String Method endsWith ==>");
+		var str1 = 'Hello World!!!';
+		console.log(str1.endsWith('Hello'));
+		console.log(str1.endsWith('Hello', 5));
+
+		console.log("New String Method includes() ==>");
+		var str2 = 'Hello World';
+		console.log(str2.includes('hell'));
+		console.log(str2.includes('Hell'));
+		console.log(str2.includes('or'));
+		console.log(str2.includes('or', 1));
+
+		console.log("New String Method repeat() ==>");
+		var myBook = new String("Perl");
+		console.log(myBook.repeat(2));
+
+	</script>
+</body>
+</html>

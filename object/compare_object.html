@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		console.log("Single Object Reference");
+
+		var val3 = { name : "Pilu" };
+		var val4 = val3;
+
+		console.log(val3 == val4);
+		console.log(val3 === val4);
+
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+			console.log("Different  Object Reference");
+
+		var val1 = { name : "Tom" };
+		var val2 = { name : "Tom" };
+
+		console.log(val1 == val2);
+		console.log(val1 === val2);
+
+	</script>
+</body>
+</html>

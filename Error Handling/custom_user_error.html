@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function MyError (message) {
+			this.name = 'CustomError';
+			this.message = message || 'Default Error Message';
+		} try {
+			throw new MyError('Printing Custom Error Message');
+		} catch (e) {
+			console.log(e.name);
+			console.log(e.message);
+		}
+
+	</script>
+</body>
+</html>

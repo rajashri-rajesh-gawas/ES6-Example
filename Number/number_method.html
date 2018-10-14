@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var res = Number.isNaN(10);
+		console.log("Value of Number.isNaN         : " + res);
+
+		var num = Number.isFinite(20);
+		console.log("Value of Number.isFinite      : " + num);
+
+		console.log(Number.isInteger(0));         // true 
+		console.log(Number.isInteger(1));         // true 
+		console.log(Number.isInteger(-100000));   // true 
+		console.log(Number.isInteger(0.1));       // false 
+		console.log(Number.isInteger(Infinity));   // false 
+		console.log(Number.isInteger("10"));      // false 
+		console.log(Number.isInteger(true));      // false 
+		console.log(Number.isInteger(false));     // false  
+
+		var safe = Number.isSafeInteger(30);
+		console.log("Value of Number.isSafeInterger : " + safe);
+
+		console.log(Number.parseFloat("10"));
+		console.log(Number.parseFloat("10.23"));
+
+		console.log(Number.parseInt("20"));
+		console.log(Number.parseInt("20.23"));
+
+	</script>
+</body>
+</html>

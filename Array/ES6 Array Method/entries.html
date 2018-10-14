@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array.prototype.entries</title>
+	<script type="text/javascript">
+		
+		console.log("Array.prototype.entries : ==>");
+		var numbers = [1, 2, 3];
+		var val = numbers.entries();
+		console.log(val.next().value);
+		console.log(val.next().value);
+		console.log(val.next().value);
+
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Use spread operator in entries");
+		var numbers = [1, 2, 3];
+		var val = numbers.entries();
+		console.log([...val]);
+
+	</script>
+</body>
+</html>

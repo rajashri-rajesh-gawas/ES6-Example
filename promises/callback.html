@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback function</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Understanding Callback ====>");
+
+		function notifyAll(fnSms, fnEmail) {
+			console.log("starting notification process..");
+			fnSms();
+			fnEmail();
+		}
+		notifyAll (function() {
+			console.log("Sms send..");
+		},
+		function() {
+			console.log("email send..");
+		});
+		console.log("End of script");
+
+	</script>
+</body>
+</html>

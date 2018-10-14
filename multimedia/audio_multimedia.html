@@ -1,0 +1,46 @@
+<html>
+   
+   <head>
+      <title>Using Embeded Object</title>
+      
+      <script type="text/javascript">
+        
+            class Multimedia {
+               play()
+               {
+                  var myaudio = document.getElementById('Audio');
+                  myaudio.play();
+               }
+
+               stop()
+               {
+                 var myStop = document.getElementById('Audio');
+                 myStop.pause();
+               }
+               rewind()
+               {
+                  var myRewind = document.getElementById('Audio');
+                  
+                  myRewind.load();
+               }
+            }
+            var multi = new Multimedia();
+        
+      </script>
+      
+   </head>
+   
+   <body>
+      
+      <audio controls id="Audio">
+      	<source src="audio/Hello.mp3" type="audio/mpeg">
+      </audio>
+      
+      <form name="form" id="form" action="" method="get">
+         <input type="button" value="Start" onclick="multi.play();" />
+         <input type="button" value="Pause" onclick="multi.stop();" />
+         <input type="button" value="Rewind" onclick="multi.rewind();" />
+      </form>
+      
+   </body>
+</html>

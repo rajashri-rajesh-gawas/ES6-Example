@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Callback Function</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Callback function ===>");
+
+		function doCalc(cb) {			// Function definition
+			alert("Hi...");
+			document.write("hi");
+			cb();						//cb is used to as a function
+		}
+		doCalc(function (){				// Callback or function decleration
+			alert("Hello...");
+			document.write("Hello")
+		});	
+
+	</script>
+</body>
+</html>

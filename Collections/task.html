@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Collection</title>
+	<script type="text/javascript">
+		// function init() {
+		// 	document.getElementById('bodyTable').innerHTML = " ";
+		// }
+
+		function saveRecord() {
+			var name 		= document.getElementById('Name').value;
+			var age  		= document.getElementById('Age').value;
+			var mobileno 	= document.getElementById('MobileNo').value;
+			var car 		= document.getElementById('Car').value;
+			var companyname = document.getElementsByName('vehicle[]');
+			// console.log(companyname);
+			var vals = "";
+			for (var i=0, n = companyname.length; i < n; i++) 
+			{
+   				 if (companyname[i].checked) 
+    				{
+       					 vals += ","+companyname[i].value;
+    				}
+			}
+			// console.log(vals);
+			if (vals) vals = vals.substring(1);
+			// console.log(vals);
+
+			// init();
+
+			var index = [];
+			var table = document.getElementById('bodyTable');
+			var row = table.insertRow();
+			var nameCell 		= row.insertCell(0);
+			var ageCell	 		= row.insertCell(1);
+			var mobilenoCell 	= row.insertCell(2);
+			var carCell 		= row.insertCell(3);
+			var companynameCell = row.insertCell(4);
+			var actionCell 		= row.insertCell(5);
+
+
+			nameCell.innerHTML		   = name;
+			ageCell.innerHTML		   = age;
+			mobilenoCell.innerHTML	   = mobileno;
+			carCell.innerHTML		   = car;
+			companynameCell.innerHTML  = vals;
+			actionCell.innerHTML	   = '<button onclick="onEditPressed('+index+')">Edit</button>   <button onclick="deleteTableRow('+index+')">Delete</button>'
+
+			document.getElementById('Name').value =" ";
+			document.getElementById('Age').value = " ";
+			document.getElementById('MobileNo').value = " ";
+			document.getElementById('Car').value = " ";
+			// document.getElementsByName('vehicle[]').checked = " ";
+			for (var i=0, n=companyname.length;i<n;i++) 
+			{
+   				 if (companyname[i].checked) 
+    				{
+       					 companyname[i].checked = false;
+    				}
+			}
+
+		}
+
+		function deleteTableRow(index) {
+			var table = document.getElementById('addTable');
+			table.deleteRow(index+1);
+			
+		}
+		var selectedIndex = -1;
+		function onEditPressed(index) {
+			selectedIndex = index;
+
+			document.getElementById('Name').value =" ";
+			document.getElementById('Age').value = " ";
+			document.getElementById('MobileNo').value = " ";
+			document.getElementById('Car').value = " ";
+
+			document.getElementById('save').innerHTML = "Update";
+		}
+
+	</script>
+</head>
+<body>
+	<h3>Collection Record</h3>
+	<form>
+		<label>Name:</label>
+		<input type="text" name="name" id="Name">
+		<br><br>
+
+		<label>Age:</label>
+		<input type="text" name="age" id="Age">
+		<br><br>
+
+		<label>Mobile No:</label>
+		<input type="text" name="mobile" id="MobileNo">
+		<br><br>
+
+		<label>Cars:</label>
+		<select id="Car">
+			<option value="Select">Select</option>
+			<option value="i20 Magna">i20 Magna</option>
+			<option value="Wegon R">Wegon R</option>
+			<option value="Duster">Duster</option>
+			<option value="Bolero">Bolero</option>
+		</select>
+		<br><br>
+		
+		<label>Company Name:</label><br>
+		<input type="checkbox" name="vehicle[]" value="Hundai">Hundai<br>
+		<input type="checkbox" name="vehicle[]" value="Maruti Suzuki">Maruth Suzuki<br>
+		<input type="checkbox" name="vehicle[]" value="Renault">Renault<br>
+		<input type="checkbox" name="vehicle[]" value="Mahindra"s>Mahindra<br>
+		<br><br>
+		
+
+		<input type="button" name="save" value="Save" id="save" onclick="saveRecord();">
+		<input type="button" name="clear" value="Clear" onclick="clearRecord();">
+	</form>
+
+	<div style="margin-left: 50%; margin-top: -25%;">
+		<table border="1px solid black" id="addTable">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Mobile No</th>
+					<th>Cars</th>
+					<th>Company Name</th>
+					<th colspan="2">Action</th>
+					
+				</tr>
+			</thead>
+			<tbody id="bodyTable">
+				
+			</tbody>
+			
+
+		</table>
+	</div>
+</body>
+</html>

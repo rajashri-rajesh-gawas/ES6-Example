@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Class Inheritance</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Shape {
+			constructor(a) {
+				this.area = a;
+			}
+		}
+		class Circle extends Shape {
+			disp() {
+				console.log("Area of the Circle: " + this.Area);
+			}
+		}
+		var obj = new Circle(223);
+		obj.disp()
+
+	</script>
+</body>
+</html>

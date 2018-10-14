@@ -1,0 +1,67 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+        class Animate{
+
+            constructor()
+            {
+                this.element = null; 
+                this.timer = null;
+                this.direction = "leftRight"; 
+            }
+
+            move() {
+                if(parseInt(this.element.style.left)<100  && parseInt(this.element.style.top)<=20 )
+                {
+                    this.element.style.left = parseInt(this.element.style.left)+20+"px";
+                }else if(parseInt(this.element.style.left)>=100  && parseInt(this.element.style.top)<100 )
+                {
+                    this.element.style.top = parseInt(this.element.style.top)+20+"px";
+                } else if(parseInt(this.element.style.left)>=20  && parseInt(this.element.style.top)>100 )
+                {
+                    this.element.style.left = parseInt(this.element.style.left)-20+"px";
+                }else if(parseInt(this.element.style.left)<=20  && parseInt(this.element.style.top)>=20)
+                {
+                    this.element.style.top = parseInt(this.element.style.top)-20+"px";
+                }  
+
+            }
+
+              myMove() {    
+                  debugger;             
+                    this.element = document.getElementById("div1");   
+                    this.timer = setInterval(()=>{
+                        this.move(); 
+                    }, 1000);                       
+                }
+
+
+                clear(){
+                        clearInterval(this.timer);
+
+                        }
+                reset(){
+                    this.element.style.left = "0px";
+                    this.element.style.top = "0px";
+                    
+                }
+        } // END Class  
+               
+   let  $z =new Animate();
+        
+      </script>
+     
+     <div>
+      <div style="height: 400; width: 400; background-color: black">
+           <div id="div1" style="height: 50; width: 50; top: 3px; left:3px; right: 300px; background-color: red;position: relative;">
+          </div>
+     </div>
+     <button type="button" onclick="$z.myMove()">start</button>
+     <button type="button" onclick="$z.reset()">Reset</button>   
+     <button type="button" onclick="$z.clear()">Stop</button>
+     </div>        
+    </body>
+</html>

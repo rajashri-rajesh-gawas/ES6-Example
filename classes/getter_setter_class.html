@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classes</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class User {
+			constructor(id, firstName, lastName, age, address, mobileno, email) {
+				this.setId = id;
+				this.setFirstname = firstName;
+				this.setLastname = lastName;
+				this.setAge = age;
+				this.setAddress = address;
+				this.setMobile = mobileno;
+				this.setEmail = email;
+			}
+
+			set setId(id) {
+				this.id = id;
+			}
+			set setFirstname(firstName){
+				this.firstName = firstName;
+				// console.log(firstName);
+			}
+			set setLastname(lastName){
+				this.lastName = lastName;
+			}
+			set setAge(age){
+				this.age = age;
+			}
+			set setAddress(address){
+				this.address = address;
+			}
+			set setMobile(mobileno){
+				this.mobileno = mobileno;
+			}
+			set setEmail(email){
+				this.email = email;
+			}
+
+			get getId() {
+				return this.id;
+			}
+			get getFirstname() {
+				return this.firstName;
+			}
+			get getLastname() {
+				return this.lastName;
+			}
+			get getAge() {
+				return this.age;
+			}
+			get getAddress() {
+				return this.address;
+			}
+			get getMobile() {
+				return this.mobileno;
+			}
+			get getEmail() {
+				return this.email;
+			}
+
+			create() {
+				let createString = `Insert = insert into Users(firstName , lastName, age, address, mobileno, email) values( ${this.getFirstname}, ${this.getLastname}, ${this.getAge}, ${this.getAddress},  ${this.getMobile}, ${this.getEmail})`;
+				console.log(createString);
+			}
+
+			update(id){
+				let updateString = `Update = UPDATE Users SET firstName = ${this.getFirstname}, lastName = ${this.getLastname}, age = ${this.getAge}, address = ${this.getAddress}, mobileno = ${this.getMobile}, email = ${this.getEmail} WHERE id = 1 `;
+				console.log(updateString);
+			}	
+
+			delete(id) {
+				let deleteString = `Delete = DELETE FROM Users WHERE id = 1 `;
+				console.log(deleteString);
+			}
+		}
+
+
+		let U = new User(1, "Rajashri", "Gawas", 26, "NDA Gate", 9561719993, "rajashrigws92@gmail.com");
+		U.create();
+		U.update(1);
+		U.delete(1);
+
+	</script>
+</body>
+</html>

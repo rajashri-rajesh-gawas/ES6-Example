@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let name = 'Raj';
+		let description = `
+			"Hello", I'm ${name + '!!!'} `;
+		console.log(description);
+
+		console.log("Template literals and expressions ==>");
+		var a = 10;
+		var b = 10;
+		console.log(`The sum of ${a} and ${b} is ${a+b} `);
+
+		console.log("Template literals and function expression ==>");
+		function fn() { return "Hello World"; }
+		console.log(`Message: ${fn() } !! `);
+
+		console.log("Multiline Strings and Template Literals ==>");
+		var multiLine = `
+			This is a 
+			string with
+			multiple lines. ` ;
+		console.log(multiLine);
+
+		console.log("String.raw() ==>");
+		var text = `Hello \n World ` ;
+		console.log(text);
+		var raw_text = String.raw`Hello \n World `
+		console.log(raw_text);
+
+
+		console.log("String.fromCodePoint() ==>");
+		console.log(String.fromCodePoint(42));
+		console.log(String.fromCodePoint(65, 90));
+	</script>
+</body>
+</html>

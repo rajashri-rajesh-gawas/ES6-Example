@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Task</title>
+	<script type="text/javascript">
+		
+		function updateTableRow(no) {
+			document.getElementById('edit_button'+no).style.display="none";
+			document.getElementById('save_button'+no).style.display="block";
+
+			var firstName = document.getElementById('firstname' +no).value;
+			var lastName = document.getElementById('lastname' +no).value;
+			var rollNum = document.getElementById('rollnum' +no).value;
+			var subject = document.getElementById('subject' +no).value;
+		}
+
+		function saveValue() {
+			var firstName = document.getElementById('firstname').value;
+			var lastName = document.getElementById('lastname').value;
+			var rollNum = document.getElementById('rollnum').value;
+			var subject = document.getElementById('subject').value;
+
+			var table = document.getElementById('regtable');
+			// var table_len=(table.rows.length)-1;
+			var row = table.insertRow();
+			var firstNameCell  = row.insertCell(0);
+			var lastNameCell  = row.insertCell(1);
+			var rollNumCell  = row.insertCell(2);
+			var subjectCell  = row.insertCell(3);
+			var actionCell   = row.insertCell(4);
+
+			firstNameCell.innerHTML = firstName;
+			lastNameCell.innerHTML = lastName;
+			rollNumCell.innerHTML = rollNum;
+			subjectCell.innerHTML = subject;
+			actionCell.innerHTML  = '<button id = "edit_button" onclick="updateTableRow()">Update</button>   <button id="save_button" onclick="saveTableRow()">Save</button>       <button onclick = "deleteTableRow('+row+')">Delete</button>'
+
+			document.getElementById('firstname').value = "";
+			document.getElementById('lastname').value = "";
+			document.getElementById('rollnum').value = "";
+			document.getElementById('subject').value = "";
+		}
+
+
+		function deleteTableRow(no) {
+			var table = document.getElementById('regtable');
+			document.getElementById("row"+ no + "").innerHTML = " ";
+		}
+
+
+		
+	</script>
+</head>
+<body>
+	<h3 style="text-align: center;">Student Record</h3>
+	<form>
+		<label>First Name :</label>   
+		<input type="text" name="firstname" id="firstname"><br>
+		<br><br>
+
+		<label>Last Name  :</label>
+		<input type="text" name="lastname" id="lastname"><br>
+		<br><br>
+
+		<label>Roll Number:</label>
+		<input type="text" name="rollno" id="rollnum"><br>
+		<br><br>
+
+		<label>Subject    :</label>
+		<select id="subject">
+			<option value="select">Select</option>
+			<option value="Physics">Physics</option>
+			<option value="English">English</option>
+			<option value="Maths">Maths</option>
+		</select>
+		<br><br>
+		
+		<button type="button" value="Save" onclick="saveValue();">Save</button>
+	</form>
+	<br>
+	<br>
+	<br>
+
+	<div style="margin-left: 50%; margin-top: -20%;">
+		<table border="1px solid black;" id="regtable">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Roll Number</th>
+					<th>Subject</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</body>
+</html>

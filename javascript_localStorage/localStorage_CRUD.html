@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Task</title>
+	<script type="text/javascript">
+		
+
+		// var myjsonObj = '[{"firstname": "Rajashri","lastname": "Gawas"}]';
+		// 	var jsObj = JSON.parse(myjsonObj);
+		// 	console.log(jsObj[0].firstname);
+		// 	console.log(jsObj[0].lastname);
+
+		var studentsArray = [];
+
+		function init() {
+			document.getElementById("tablerows").innerHTML = " ";
+			if (localStorage.studentsRecord) {
+				studentsArray = JSON.parse(localStorage.studentsRecord);
+				for(var i = 0; i < studentsArray.length; i++) {
+					// var firstName = studentsArray[i].firstname;
+					// var lastName  = studentsArray[i].lastname;
+					// var rollNum   = studentsArray[i].rollnum;
+					// var subject   = studentsArray[i].subject;
+
+					prepareTableCell(i,studentsArray[i].firstname, studentsArray[i].lastname, studentsArray[i].rollnum ,studentsArray[i].subject);
+				}
+			}
+		}
+
+		function save() {
+			// var fieldValue = document.getElementById('firstname').value;
+			// localStorage.setItem('text', fieldValue);
+			// localStorage.getItem('text', fieldValue);
+
+			var firstName = document.getElementById('firstname').value;
+			var lastName  = document.getElementById('lastname').value;
+			var rollNum   = document.getElementById('rollnum').value;
+			var subject   = document.getElementById('subject').value;
+
+			var stuObj = {firstname:firstName, lastname:lastName, rollnum:rollNum, subject:subject};
+			if(selectedIndex === -1) {
+				studentsArray.push(stuObj);
+				// console.log(studentsArray);
+			} else {
+				studentsArray.splice(selectedIndex,1,stuObj);
+			}
+			localStorage.studentsRecord = JSON.stringify(studentsArray);
+
+			init(); 
+			onClearPressed();
+		}
+
+		function prepareTableCell(index, firstName, lastName, rollNum, subject) {
+			var table = document.getElementById("tablerows");
+			var row = table.insertRow();
+			var firstNameCell = row.insertCell(0);
+			var lastNameCell  = row.insertCell(1);
+			var rollNumCell   = row.insertCell(2);
+			var subjectCell   = row.insertCell(3);
+			var actionCell   = row.insertCell(4);
+
+			firstNameCell.innerHTML = firstName;
+			lastNameCell.innerHTML  = lastName;
+			rollNumCell.innerHTML	= rollNum;
+			subjectCell.innerHTML   = subject;
+			actionCell.innerHTML   = '<button onclick="onEditPressed('+index+')">Edit</button><button onclick="deleteTableRow('+index+')">Delete</button>'
+		}
+
+		function deleteTableRow(index) {
+			var table = document.getElementById("regtable");
+			table.deleteRow(index+1);
+			studentsArray.splice(index, 1);
+			localStorage.studentsRecord = JSON.stringify(studentsArray);
+			init(); 
+		}
+
+		function onClearPressed() {
+			selectedIndex = -1;
+			document.getElementById('firstname').value = " ";
+			document.getElementById('lastname').value = " ";
+			document.getElementById('rollnum').value = " ";
+			document.getElementById('subject').value = " ";
+
+			document.getElementById('submit').innerHTML = "Save";
+		}
+		var selectedIndex = -1;
+		function onEditPressed(index) {
+			selectedIndex = index;
+			var stuObj = studentsArray[index];
+			document.getElementById('firstname').value = stuObj.firstname;
+			document.getElementById('lastname').value = stuObj.lastname;
+			document.getElementById('rollnum').value = stuObj.rollnum;
+			document.getElementById('subject').value = stuObj.subject;
+
+			document.getElementById('submit').innerHTML = "Update";
+		}
+	</script>
+</head>
+<body onload="init()">
+	<form>
+		<label>First Name :</label>   
+		<input type="text" name="firstname" id="firstname"><br>
+		<br><br>
+
+		<label>Last Name  :</label>
+		<input type="text" name="lastname" id="lastname"><br>
+		<br><br>
+
+		<label>Roll Number:</label>
+		<input type="text" name="rollno" id="rollnum"><br>
+		<br><br>
+
+		<label>Subject    :</label>
+		<select id="subject">
+			<option value="select">Select</option>
+			<option value="Physics">Physics</option>
+			<option value="English">English</option>
+			<option value="Maths">Maths</option>
+		</select>
+		<br><br>
+		
+		<button type="button" value="Save" id="submit" onclick="save();">Save</button>
+		<button type="button" value="Clear" id="clear" onclick=" onClearPressed();">Clear</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<div style="margin-left: 50%; margin-top: -20%;">
+		<table border="1px solid black;" id="regtable">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Roll Number</th>
+					<th>Subject</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody id="tablerows">
+
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

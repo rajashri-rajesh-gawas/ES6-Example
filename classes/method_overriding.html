@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>method overriding</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Class Inheritance and Method Overriding ===>");
+
+		class PrinterClass {
+			doPrint() {
+				console.log("doPrint() from Parent called...");
+			}
+		}
+		class StringPrinter extends PrinterClass {
+			doPrint() {
+				console.log("doPrint() is printing a string...");
+			}
+		}
+		var obj = new StringPrinter();
+		obj.doPrint();
+
+	</script>
+</body>
+</html>

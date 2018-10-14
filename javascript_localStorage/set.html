@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var saveRecord = " ";
+
+		function saveValue(){
+
+			var username = document.getElementById('name').value;
+			var ages     = document.getElementById('age').value;
+			// Check browser support
+			if (localStorage.record) {
+			    saveRecord = JSON.parse(localStorage.record);
+			    for(var i = 0; i < saveRecord.length; i++ ) {
+			    	var username = document.getElementById('name').value;
+			    }
+
+			    localStorage.setItem("Name", username);
+			    localStorage.setItem("Age", ages);
+			    // Retrieve
+			    document.getElementById("name").innerHTML = localStorage.getItem("Name");
+			    document.getElementById('age').innerHTML  = localStorage.getItem("Age");
+			}
+		}
+</script>
+
+<form>
+	<label>Name:</label>
+	<input type="test" name="Name" id="name">
+	<br><br>
+	<label>Age:</label>
+	<input type="text" name="Age" id="age">
+	<br><br>
+
+	<input type="button" value="Save" onclick="saveValue()">
+</form>
+</body>
+</html>

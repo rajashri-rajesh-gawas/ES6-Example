@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Pro {
+			static go(n) {
+				return new Promise( function (resolve,reject) {
+					if(n > 0)
+					{
+						resolve({status:true});
+					}
+					else
+					{
+						reject({status:false});
+					}
+				});
+			}		
+		}
+		Pro.go(1).then( function (res) {
+			console.log("Response:",res )
+		}).catch( function (error) {
+			console.log("Error:",error);
+		});
+		Pro.go(0).then( function (res) {
+			console.log("Response:",res )
+		}).catch( function (error) {
+			console.log("Error:",error);
+		});
+		Pro.go(2).then( function (res) {
+			console.log("Response:",res )
+		}).catch( function (error) {
+			console.log("Error:",error);
+		});
+
+	</script>
+</body>
+</html>

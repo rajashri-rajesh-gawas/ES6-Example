@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map values</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Map Method values() ===>");
+
+		var myMap = new Map();
+		myMap.set("id", "admin");
+		myMap.set("pass", "admin@123");
+
+		var itr = myMap.values();
+		console.log(itr.next().value);
+		console.log(itr.next().value);
+
+	</script>
+</body>
+</html>

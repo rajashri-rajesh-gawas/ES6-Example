@@ -1,0 +1,9 @@
+(function() {
+    "use strict";
+    function Message_module$$display_message() { 
+       console.log("Hello World");
+    }
+    var Message_module$$default = Message_module$$display_message;
+}).call(this);
+
+//# sourceMappingURL=out.map

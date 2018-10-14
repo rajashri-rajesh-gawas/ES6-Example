@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map forEach</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Map Method forEach()  ===>");
+
+		function userdetails(key, value) {
+			console.log("m[" + key + "] = " + value);
+		}
+		var myMap = new Map();
+		myMap.set("id", "admin");
+		myMap.set("pass", "admin@123");
+		myMap.forEach(userdetails);
+
+	</script>
+</body>
+</html>

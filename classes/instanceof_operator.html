@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>instanceof operator</title>
+	<script type="text/javascript">
+		
+		console.log("instanceof operator ===>");
+
+		class Person { }
+		var obj = new Person()
+		var isPerson = obj instanceof Person;
+		console.log("obj is an instance of Person " + isPerson);
+
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("instanceof operator ===>");
+
+		class Parent { }
+		class Child { }
+		var obj = new Person()
+		var isParent = obj instanceof Child;
+		console.log("obj is an instance of Parent " + isParent);
+
+	</script>
+</body>
+</html>

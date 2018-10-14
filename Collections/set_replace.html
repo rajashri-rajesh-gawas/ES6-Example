@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set Replace</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("The set() replaces the value for the key.");
+
+		var roles = new Map([
+			['r1', 'User'],
+			['r2', 'Guest'],
+			['r3', 'Admin'],
+			]);
+
+		console.log(`Value of key r1 before set(): ${roles.get('r1')}`);
+		roles.set('r1', 'superUser');
+		console.log(`Value of key r1 after set(): ${roles.get('r1')}`);
+
+	</script>
+</body>
+</html>

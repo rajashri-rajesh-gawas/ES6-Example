@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Getter and setter in classes</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class getThings{
+			
+			constructor(size) {
+				this.setValue = size;
+				// this.length = size;
+			}
+
+			set setValue(value) {
+				this.length = value;
+				console.log("the value has been set");
+			}
+
+			get getValue() {
+				return this.length;
+				// console.log("This is getter value");
+			}
+			
+
+		}
+		var U = new getThings(26);
+		// U.setValue = 10;
+		// console.log(U.getValue);
+
+		
+
+		
+		// class Person {
+		//   constructor(name) {
+		//     this.name = name;
+		//   }
+		//   get name( ) {
+		//   	return this.name;
+		//   }
+		//   set name(newName) {
+		//   	this.name = newName;
+		//   }
+		// }
+		         
+		// let bob = new Person('Bob');
+		// console.log(bob.name);  // Outputs 'Bob'
+		// bob.name();
+
+	</script>
+</body>
+</html>

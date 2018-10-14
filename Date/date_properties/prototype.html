@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype</title>
+</head>
+<body>
+	<script type="text/javascript">
+			
+		console.log("Date.prototype ==>");
+
+		var myBook = new book("Perl", "Mohtashim"); 
+		book.prototype.price = null; 
+		myBook.price = 100; 
+
+		console.log("Book title is : " + myBook.title + "<br>"); 
+		console.log("Book author is : " + myBook.author + "<br>"); 
+		console.log("Book price is : " + myBook.price + "<br>"); 
+
+
+
+	</script>
+</body>
+</html>

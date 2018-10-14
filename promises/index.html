@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Promises</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		class Pro {
+			static go() {
+				console.log("Before");
+				return {
+					home: function(cb) 
+					{
+						console.log("In home");
+						cb();
+					},
+						city : "Pune"
+				};
+				console.log("After");
+			}
+		}
+		Pro.go().home( function (){
+			console.log("After Home");
+		});
+		// console.log(Pro.go().home());
+		// console.log(Pro.go().city);
+		// var a=10;
+		// var b = a.toString();
+		// console.log(typeOf();
+
+	</script>
+</body>
+</html>

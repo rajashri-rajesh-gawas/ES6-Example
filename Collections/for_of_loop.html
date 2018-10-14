@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>for of loop</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("for of loop ====>");
+
+		var roles = new Map([
+			['r1', 'User'],
+			['r2', 'Guest'],
+			['r3', 'Admin'],
+			]);
+		for (let r of roles.entries()) 
+			console.log(`${r[0]}: ${r[1]}`);
+
+	</script>
+</body>
+</html>

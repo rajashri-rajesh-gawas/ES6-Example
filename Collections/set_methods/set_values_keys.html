@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Set method values and Keys</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Collections Set values() and keys() ===>");
+
+		var mySet = new Set();
+		mySet.add("Rajesh");
+		mySet.add("Pilu");
+		mySet.add("Rajashri");
+		console.log("Printing keys()--------------");
+
+		var keyitr = mySet.keys();
+		console.log(keyitr.next().value);
+		console.log(keyitr.next().value);
+		console.log(keyitr.next().value);
+		console.log("Printing values()-------------");
+
+		var valitr =  mySet.values();
+		console.log(valitr.next().value);
+		console.log(valitr.next().value);
+		console.log(valitr.next().value);
+
+	</script>
+</body>
+</html>

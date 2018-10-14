@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animation</title>
+	<style type="text/css">
+		
+	#div{
+		height: 100px;
+		width: 120px;
+		margin-top: 20px;
+		margin-left: 70px;
+		border: 1px solid black;
+		padding-left: 10px;
+	}
+	.div{
+		height: 50px;
+		width: 50px;
+		border: 1px solid red;
+		background: blue;
+		margin-top: 10px;
+		margin-left: 10px;
+		top: 10px;
+		position: relative;
+		animation: div 5s ;
+	}
+
+	@keyframes div{
+	    0%   {background: blue; left: 0px; top: 0px;}
+	    25%  {background: blue; left: 200px; top: 0px;}
+	    50%  {background: blue; left: 200px; top: 200px;}
+	    75%  {background: blue; left: 0px; top: 200px;}
+	    100% {background: blue; left: 0px; top: 0px;}
+	}
+
+	.btn{
+		background-color: green;
+		margin-top: 80px;
+	}
+	.button{
+		background-color: red;
+		margin-top: 80px;
+	}
+
+	</style>
+	<script type="text/javascript">
+		
+		class Animate{
+				
+			move() {
+			this.element = document.getElementById('box');
+				//console.log("log", ob.style.top);
+				if(isNaN(parseInt(this.element.style.left)))
+				{
+				  this.element.style.left = 0;
+				  //this.element.style.right = '495px';	
+				  this.element.style.top = 0;
+				}
+				this.element.style.left = parseInt(this.element.style.left) + 10 + 'px';
+				//this.element.style.right = parseInt(this.element.style.right) + 10 + 'px';
+				//this.element.style.top = parseInt(this.element.style.top) + 5 + 'px';
+				
+
+			}
+
+			startDiv() {
+				
+				this.ob = setInterval( ()=>{
+				this.move();
+				},1000);
+				
+			}
+
+			stopDiv() {
+				
+				clearInterval(this.ob);
+				this.element.style.left = '200px';
+				//this.element.style.right = '495px';
+				this.element.style.top = '200 px';
+				console.log(this.ob);
+				// this.ob.style.top = '0px';	
+				
+			}
+
+			
+		}
+
+		let ani = new Animate();
+		
+
+	</script>
+</head>
+<body>
+	<div  class="div" id="box"></div>
+	<div id="div"></div>
+	<button class="btn" onclick="ani.startDiv()">Start</button>
+	<button class="button" onclick="ani.stopDiv();">Stop</button>
+</body>
+</html>

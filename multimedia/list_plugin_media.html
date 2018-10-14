@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multimedia</title>
+	
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>Plug-in Name </th>
+			<th>Filename</th>
+			<th>Description</th>
+		</tr>
+	</table>
+
+	<script type="text/javascript" language="javascript" >
+		
+		for(i = 0; i < navigator.plugins.length; i++) {
+			document.write("<tr><td>");
+			document.write(navigator.plugins[i].name);
+			document.write("<tr><td>");
+			document.write(navigator.plugins[i].filename);
+			document.write("<tr><td>");
+			document.write(navigator.plugins[i].description);
+			document.write("<tr><td>");
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript Task</title>
+	<script type="text/javascript">
+		
+
+		var myjsonObj = '[{"firstname": "Rajashri","lastname": "Gawas"}]';
+			var jsObj = JSON.parse(myjsonObj);
+			console.log(jsObj[0].firstname);
+			console.log(jsObj[0].lastname);
+
+		var studentsArray = [];
+
+		function init() {
+			if (localStorage.studentsRecord) {
+				studentsArray = JSON.parse(localStorage.studentsRecord);
+				for(var i = 0; i < studentsArray.length; i++) {
+					// var firstName = studentsArray[i].firstname;
+					// var lastName  = studentsArray[i].lastname;
+					// var rollNum   = studentsArray[i].rollnum;
+					// var subject   = studentsArray[i].subject;
+
+					prepareTableCell(studentsArray[i].firstname, studentsArray[i].lastname, studentsArray[i].rollnum ,studentsArray[i].subject);
+				}
+			}
+		}
+
+		function save() {
+			// var fieldValue = document.getElementById('firstname').value;
+			// localStorage.setItem('text', fieldValue);
+			// localStorage.getItem('text', fieldValue);
+
+			var firstName = document.getElementById('firstname').value;
+			var lastName  = document.getElementById('lastname').value;
+			var rollNum   = document.getElementById('rollnum').value;
+			var subject   = document.getElementById('subject').value;
+
+			var stuObj = {firstname:firstName, lastname:lastName, rollnum:rollNum, subject:subject};
+			studentsArray.push(stuObj);
+			// console.log(studentsArray);
+
+			localStorage.studentsRecord = JSON.stringify(studentsArray);
+
+			prepareTableCell(firstName, lastName, rollNum, subject);
+
+			document.getElementById('firstname').value = " ";
+			document.getElementById('lastname').value = " ";
+			document.getElementById('rollnum').value = " ";
+
+		}
+
+		function prepareTableCell(firstName, lastName, rollNum, subject) {
+			var table = document.getElementById("regtable");
+			var row = table.insertRow();
+			var firstNameCell = row.insertCell(0);
+			var lastNameCell  = row.insertCell(1);
+			var rollNumCell   = row.insertCell(2);
+			var subjectCell   = row.insertCell(3);
+
+			firstNameCell.innerHTML = firstName;
+			lastNameCell.innerHTML  = lastName;
+			rollNumCell.innerHTML	= rollNum;
+			subjectCell.innerHTML   = subject;
+		}
+	</script>
+</head>
+<body onload="init()">
+	<form>
+		<label>First Name :</label>   
+		<input type="text" name="firstname" id="firstname"><br>
+		<br><br>
+
+		<label>Last Name  :</label>
+		<input type="text" name="lastname" id="lastname"><br>
+		<br><br>
+
+		<label>Roll Number:</label>
+		<input type="text" name="rollno" id="rollnum"><br>
+		<br><br>
+
+		<label>Subject    :</label>
+		<select id="subject">
+			<option value="select">Select</option>
+			<option value="Physics">Physics</option>
+			<option value="English">English</option>
+			<option value="Maths">Maths</option>
+		</select>
+		<br><br>
+		
+		<button type="button" value="Save" onclick="save();">Save</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<table border="1px solid black;" id="regtable">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Roll Number</th>
+				<th>Subject</th>
+			</tr>
+		</thead>
+		<!-- <tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody> -->
+	</table>
+</body>
+</html>

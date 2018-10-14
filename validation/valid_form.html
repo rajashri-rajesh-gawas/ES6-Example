@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+<body>
+		<div class="container">
+			<div class="col-lg-8 m-auto d-block"><br>
+				<h1 class="text-success text-center">Complate Form Validation In ECMA Script</h1><br>
+				<form action="#" class="bg-light">
+					
+					<div class="form-group">
+						<label>Username:</label>
+						<input type="text" name="user" class="form-control" id="user" autocomplete="off" onblur="validUser()">
+						<span id="username" class="text-danger font-weight-bold"></span>
+					</div>
+
+					<div class="form-group">
+						<label>Password:</label>
+						<input type="text" name="pass" class="form-control" id="pass" autocomplete="off" onblur="validPassword()">
+						<span id="passwords" class="text-danger font-weight-bold"></span>
+					</div>
+
+					<!-- <div class="form-group">
+						<label>Confirm Password:</label>
+						<input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off" onblur="validConfirm()">
+						<span id="confirmpass" class="text-danger font-weight-bold"></span>
+					</div> -->
+
+					<div class="form-group">
+						<label>Mobile Number:</label>
+						<input type="text" name="mobile" class="form-control" id="MobileNumber" autocomplete="off" onblur="validMobile()">
+						<span id="mobilenumber" class="text-danger font-weight-bold"></span>
+					</div>
+
+					<div class="form-group">
+						<label>Email:</label>
+						<input type="text" name="email" class="form-control" id="emails" autocomplete="off" onblur="validEmail()">
+						<span id="emailid" class="text-danger font-weight-bold"></span>
+					</div>
+
+					<input type="submit" name="submit" value="submit" class="btn btn-success" id="subbtn" disabled="true">
+				</form>
+			</div>
+		</div>
+	
+
+
+	<script type="text/javascript">
+
+		let a = 0, b = 0,  c = 0, d = 0;
+			function validUser() {
+				let user = document.getElementById('user').value;
+
+				if(user == "") {
+					document.getElementById('username').innerHTML = "* Please fill the username field";
+					a = 0;
+				}
+				else if((user.length <=2) || (user.length >20)) {
+					document.getElementById('username').innerHTML = "* User length must be between 2 and 20";
+					a = 0;
+				}
+				else if(!isNaN(user)) {
+						document.getElementById('username').innerHTML = "* Only characters are allowed";
+						a = 0;
+				}
+				else {
+					document.getElementById('username').innerHTML = " ";
+					a = 1;
+				}
+				submitEnable();
+			}
+
+			function validPassword() {
+				let password = document.getElementById('pass').value;
+
+				if(password == "") {
+					document.getElementById('passwords').innerHTML = "* Please fill the password field";
+					b = 0;
+				}
+				else if((password.length <=5) || (password.length > 20)) {
+					document.getElementById('passwords').innerHTML = "* Password length must be beetween 5 and 20";
+					b = 0;
+				}
+				else {
+					document.getElementById('passwords').innerHTML = " ";
+					b = 1;
+				}
+				submitEnable();
+			}
+
+			// function validConfirm() {
+			// 	let confirm  = document.getElementById('conpass').value;
+
+			// 	if(confirm == "") {
+			// 		document.getElementById('confirmpass').innerHTML = "* Please fill the confirm password field";
+			// 		c = 0;
+			// 	}
+			// 	else if(password != confirm) {
+			// 		document.getElementById('confirmpass').innerHTML = "* Passwords are not matching";
+			// 		c = 0;
+			// 	}
+			// 	else {
+			// 		document.getElementById('confirmpass').innerHTML = "";
+			// 		c = 1;
+			// 	}
+			// 	submitEnable();
+			// }
+
+			function validMobile() {
+				let mobileno = document.getElementById('MobileNumber').value;
+
+				if(mobileno == "") {
+					document.getElementById('mobilenumber').innerHTML = "* Please fill the mobile number field";
+					c = 0;
+				} 
+				if(isNaN(mobileno)) {
+					document.getElementById('mobilenumber').innerHTML = "* User must write digits only not characters";
+					c = 0;	
+				}
+				if(mobileno.length != 10) {
+					document.getElementById('mobilenumber').innerHTML = "* Mobile Number must be 10 digits";
+					c = 0;
+				}
+				else {
+					document.getElementById('mobilenumber').innerHTML = " ";
+					c = 1;
+				}
+				submitEnable();
+			}
+
+			function validEmail() {
+				let emailid  = document.getElementById('emails').value;
+
+				if(emailid == "") {
+					document.getElementById('emailid').innerHTML = "* Please fill the email id field";
+					d = 0;
+				}
+				else if(emailid.indexOf('@') <= 0 ) {
+					document.getElementById('emailid').innerHTML = "* @ Invalid Position";
+					d = 0;
+				}
+				else if((emailid.charAt(emailid.length-4) != '.') && (emailid.charAt(emailid.length-3) != '.')){
+					document.getElementById('emailid').innerHTML = "* . Invalid Position";
+					d = 0;
+				}
+				else {
+					document.getElementById('emailid').innerHTML = " ";
+					d = 1;
+				}
+				submitEnable();
+			}
+			function submitEnable() {
+				if(a && b && c && d) {
+					let element = document.getElementById('subbtn').disabled = false;
+				}
+				else {
+					let element = document.getElementById('subbtn').disabled = true;
+				}
+			}
+
+	</script>
+</body>
+</html>

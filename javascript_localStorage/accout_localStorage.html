@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local Storage</title>
+	<script type="text/javascript">
+		
+		var accountArray = [];
+		function account() {
+			if(localStorage.accountRecord) {
+				accountArray = JSON.parse(localStorage.accountRecord);
+				for (var i = 0; i < accountArray.length; i++) {
+					// var openbalance = accountArray[i].openBalance;
+					// var expences  = accountArray[i].expence;
+					// var rents   = accountArray[i].rent;
+					// var date   = accountArray[i].date;
+					// var dayincome   = accountArray[i].dayIncome;
+					// var closebalance   = accountArray[i].closeBalance;
+					prepareTableCell(accountArray[i].openBalance, accountArray[i].expence, accountArray[i].rent, accountArray[i].date, accountArray[i].dayIncome, accountArray[i].closeBalance);
+				}
+			}
+		}
+
+		function saveValue() {
+			var openbalance = document.getElementById('openBalance').value;
+			var expences    = document.getElementById('expence').value;
+			var rents 		= document.getElementById('rent').value;
+			var date 		= document.getElementById('date').value;
+			var dayincome   = document.getElementById('dayIncome').value;
+			var closebalance= document.getElementById('closeBalance').value;
+
+			var myObj = { openBalance:openbalance, expence:expences, rent:rents, date:date, dayIncome:dayincome, closeBalance:closebalance };
+			accountArray.push(myObj);
+			
+			localStorage.accountRecord = JSON.stringify(accountArray);
+
+			prepareTableCell(openbalance, expences, rents, date, dayincome, closebalance);
+			document.getElementById('openBalance').value = " ";
+			document.getElementById('expence').value = " ";
+			document.getElementById('rent').value = " ";
+			document.getElementById('date').value = " ";
+			document.getElementById('dayIncome').value = " ";
+			document.getElementById('closeBalance').value = " ";
+		}
+
+		function prepareTableCell(openbalance, expences, rents, date, dayincome, closebalance)	{
+			var table = document.getElementById('accTable');
+			var row = table.insertRow();
+			var openbalanceCell = row.insertCell(0);
+			var expencesCell 	= row.insertCell(1);
+			var rentsCell		= row.insertCell(2);
+			var dateCell 		= row.insertCell(3);
+			var dayincomeCell 	= row.insertCell(4);
+			var closebalanceCell= row.insertCell(5);
+
+			openbalanceCell.innerHTML = openbalance;
+			expencesCell.innerHTML	  = expences;
+			rentsCell.innerHTML		  = rents;
+			dateCell.innerHTML		  = date;
+			dayincomeCell.innerHTML	  = dayincome;
+			closebalanceCell.innerHTML= closebalance;
+		}
+	</script>
+</head>
+<body onload="account()">
+	<h3 align="center">Daily Account</h3>
+	<form>
+		<label>Open Balance:</label>
+		<input type="text" name="Open_balance" id="openBalance">
+		<br><br>
+
+		<label>Expences:</label>
+		<input type="text" name="Expences" id="expence">
+		<br><br>
+
+		<label>Rent:</label>
+		<input type="text" name="Rent" id="rent">
+		<br><br>
+
+		<label>Date:</label>
+		<input type="date" name="Date" id="date">
+		<br><br>
+
+		<label>Day Income:</label>
+		<input type="" name="Day_income" id="dayIncome">
+		<br><br>
+
+		<label>Close Balance:</label>
+		<input type="text" name="Close_balance" id="closeBalance">
+		<br><br>
+		
+		<input type="button" value="Save" onclick="saveValue();">
+	</form>
+	<br><br><br>
+	<div style="margin-left: 50%; margin-top: -25%;">
+		<table border="1px solid black" id="accTable">
+			<thead>
+				<tr>
+					<th>Open Balance</th>
+					<th>Expences</th>
+					<th>Rent</th>
+					<th>Date</th>
+					<th>Day Income</th>
+					<th>Close Balance</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</body>
+</html>

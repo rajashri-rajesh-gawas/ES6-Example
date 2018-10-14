@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Let and Block Scope</title>
+	<script type="text/javascript">
+		console.log("var keyword===>")
+		var n = 10; 
+		var n = 20; 
+		console.log(n);
+
+		console.log("let keyword===>")
+		let no = 10; 
+		let no = 20; 
+		console.log(no);
+
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// "use strict" 
+	function test() { 
+	   var num = 100 
+	   console.log("value of num in test() "+num);
+	    { 
+	      console.log("Inner Block begins") 
+	      let num = 200 
+	      console.log("value of num : "+num)  
+	   } 
+	} 
+	test()
+
+	</script>
+</body>
+</html>

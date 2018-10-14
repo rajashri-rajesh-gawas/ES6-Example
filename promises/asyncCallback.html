@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Async Callback</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Async Callback ====>");
+
+		function notifyAll(fnSms, fnEmail) {
+			setTimeout(function() {
+				console.log("Starting notification process");
+				fnSms();
+				fnEmail();
+			}, 2000);
+		}
+		notifyAll (function(){
+			console.log("Sms send..");
+		},
+		function () {
+			console.log("Email send..");
+		});
+		console.log("End of Script");
+
+	</script>
+</body>
+</html>

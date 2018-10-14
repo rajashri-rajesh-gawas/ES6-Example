@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel = "canonical" href = "http://abc.com/" />
+	<script type="text/javascript">
+		
+		function newLocation(){
+			window.location = "http://www.google.com";
+		}
+
+		function replaceLocation() {
+			window.location.replace("http://www.yahoo.com ");
+		}
+
+		function assignLocation() {
+			window.location.assign("http://www.rediffmail.com");
+		}
+
+		function reloadLocation() {
+			window.location.reload("http://www.yahoo.com");
+		}
+
+		function navigateWindow() {
+			window.navigate = ("http://www.voot.com");
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="Go to new Location" onclick="newLocation();">
+	<br><br><br>
+	<input type="button" value="Replace Location" onclick="replaceLocation();">
+	<br><br><br>
+	<input type="button" value="Assign Location" onclick="assignLocation();">
+	<br><br><br>
+	<input type="button" value="Reload Location" onclick="reloadLocation();">
+	<br><br><br>
+	<input type="button" value="Navigate Window" onclick="navigateWindow();">
+</body>
+</html>

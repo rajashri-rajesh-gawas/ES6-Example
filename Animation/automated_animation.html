@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		
+		var imgObj = null; var animate ; function init() {
+			imgObj = document.getElementById('myImage');
+			imgObj.style.position = 'relative';
+			imgObj.style.left = '0px';
+		}
+		function moveRight() {
+			imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+			animate = setTimeout(moveRight,20);
+		}
+		function stop() {
+			clearTimeout(animate);
+			imgObj.style.left = '0px';
+		}
+		window.onload = init;
+
+	</script>
+</head>
+<body>
+	<img src="../image/pilu.jpg" id="myImage" style="transform: rotate(90deg); height: 500px; padding: 80px;">
+	<p>Click the buttons below to handle animation. </p>
+	<input type="button" name="" value="Start" onclick="moveRight();">
+	<input type="button" name="" value="Stop" onclick="stop();"> 
+</body>
+</html>

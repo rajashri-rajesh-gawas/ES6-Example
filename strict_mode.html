@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Strict mode</title>
+	<script type="text/javascript">
+		
+		// Whole-script strict mode syntax 
+		// "use strict"; 
+		 v = "Hi!  I'm a strict mode script!";  // ERROR: Variable v is not declared
+		console.log(v);
+	</script>
+</head>
+<body>
+<script type="text/javascript">	
+	
+	a = 15 
+	function f1() { 
+	   "use strict"; 
+	   var b = "Hi!  I'm a JavaScript!"; 
+	   console.log(b);
+	}
+	f1();
+	console.log(a);
+
+</script>		
+</body>
+</html>

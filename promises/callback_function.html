@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">    				//This code is callback function
+		let a = [20,30,40,50];
+		let i;
+		a.doEach = function (cb){					//cb is a function.
+			for(i = 0;i < a.length; i++) {
+				cb(this[i]);
+			}
+		}	
+
+		// a->this is object and doEach is a method or function called.
+		//this next line is function definition.
+		a.doEach(function(item){
+			console.log(item);
+		});
+		// a.doEach();
+	</script>
+</body>
+</html>
+
+
+

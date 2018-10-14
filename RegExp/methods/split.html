@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RegExp split</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("RegExp split() ==>");
+
+		var names = 'Monday;Tuesday;Wednesday';
+		console.log(names);
+		var re = /\s*;\s*/;
+		var namelist = names.split(re);
+		console.log(namelist);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Date Format Calculation</title>
+	<script type="text/javascript">
+			
+			
+
+			function saveDetail() { 
+				var name = document.getElementById('birthName').innerHTML = document.getElementById('Name').value;
+				var date = document.getElementById('DOB').innerHTML = document.getElementById('Date').value;
+			}
+
+			
+
+
+	</script>
+</head>
+<body>
+	<div>
+		<label id="birthName">Name: ....</label> <br><br>
+
+		<label id="DOB">Date of Birth: ....</label> <br><br>
+
+		<label id="day">Sum of Day: ...</label> <br><br>
+
+		<label id="year">Sum of Year: ...</label> <br><br>
+		
+		<input type="button" name="save" value="Fill Data" id="btn">
+		<br><br>
+	</div>
+
+	<form id="form">
+		<label>Enter Name:</label>
+		<input type="text" name="name" placeholder="Enter Name" id="Name" >
+		<br><br>
+		<label>Date of Birth:</label>
+		<input type="date" name="date" placeholder="Enter Date of Birth" id="Date">
+		<br><br>
+		<input type="button" name="save" value="Save" id="button" onclick="saveDetail();">
+	</form>
+</body>
+</html>

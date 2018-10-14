@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map delete</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		console.log("Map Method Delete(key) ===>");
+
+		var myMap = new Map();
+		myMap.set("id", "admin");
+		myMap.set("pass", "admin@123");
+		console.log(myMap.has("id"));
+
+		myMap.delete("id");
+		console.log(myMap.has("id"));
+
+	</script>
+</body>
+</html>
